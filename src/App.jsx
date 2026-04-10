@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 /* ─────────────────────────────────────────────
    DATA
 ───────────────────────────────────────────── */
-const NAV_LINKS = ["Home", "About", "Menu", "Services", "Portfolio", "Contact"];
+const NAV_LINKS = ["Home", "About", "Menu", "Services", "Portfolio", "Help", "Contact"];
 
 const DISHES = [
   {
@@ -163,6 +163,7 @@ const PORTFOLIO_ITEMS = [
     title: "Chef’s Garden",
   },
 ];
+
 
 const TIMELINE = [
   {
@@ -775,7 +776,51 @@ function Portfolio() {
     </div>
   );
 }
+/* ─────────────────────────────────────────────
+   HELP PAGE
+───────────────────────────────────────────── */
+function Help() {
+  const FAQS = [
+    { q: "Do I need a reservation?", a: "Yes, reservations are recommended." },
+    { q: "What are your opening hours?", a: "12 PM to 11 PM daily." },
+    { q: "Do you have vegetarian options?", a: "Yes, multiple vegetarian dishes available." },
+    { q: "Do you offer home delivery?", a: "Currently dine-in only." },
+    { q: "Can I host events here?", a: "Yes, private events are available." },
+    { q: "Is parking available?", a: "Yes, valet parking available." },
+    { q: "Do you accept online payments?", a: "Yes, all major methods accepted." },
+    { q: "Is there a dress code?", a: "Smart casual recommended." },
+    { q: "Can I customize my food?", a: "Yes, based on chef availability." },
+    { q: "How to contact support?", a: "Use our contact page or call us." },
+  ];
 
+  const [active, setActive] = useState(null);
+
+  return (
+    <div className="bg-[#07111d] text-white pt-32">
+      <section className="max-w-4xl mx-auto px-6 py-20 text-center">
+        <SectionTag text="Support" />
+        <h2 className="text-5xl font-black text-[#f8f4ef]">Help & FAQ</h2>
+        <AccentLine />
+      </section>
+
+      <section className="max-w-4xl mx-auto px-6 pb-24 space-y-4">
+        {FAQS.map((item, i) => (
+          <div
+            key={i}
+            onMouseEnter={() => setActive(i)}
+onMouseLeave={() => setActive(null)}
+            className="p-5 border border-white/10 rounded-2xl bg-white/5 cursor-pointer"
+          >
+            <h3 className="font-semibold">{item.q}</h3>
+            {active === i && (
+              <p className="text-[#b9c3cd] mt-2">{item.a}</p>
+            )}
+          </div>
+        ))}
+      </section>
+    </div>
+  );
+}
 /* ─────────────────────────────────────────────
    CONTACT
 ───────────────────────────────────────────── */
@@ -1032,16 +1077,15 @@ export default function App() {
     setCart((prev) => [...prev, dish]);
     setCartOpen(true);
   };
-
-  const PAGES = {
-    Home: (props) => <Home {...props} />,
-    About: About,
-    Menu: (props) => <Menu {...props} addToCart={addToCart} />,
-    Services: (props) => <Services {...props} />,
-    Portfolio: Portfolio,
-    Contact: Contact,
-  };
-
+const PAGES = {
+  Home: (props) => <Home {...props} />,
+  About: About,
+  Menu: (props) => <Menu {...props} addToCart={addToCart} />,
+  Services: (props) => <Services {...props} />,
+  Portfolio: Portfolio,
+  Help: Help,   // ✅ ADD THIS
+  Contact: Contact,
+};
   const PageComponent = PAGES[activePage];
 
   return (
