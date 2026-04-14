@@ -1,8 +1,5 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
-/* ─────────────────────────────────────────────
-   NAV LINKS
-───────────────────────────────────────────── */
 const NAV_LINKS = [
   "Home",
   "About",
@@ -13,31 +10,18 @@ const NAV_LINKS = [
   "Contact",
 ];
 
-/* ─────────────────────────────────────────────
-   NAVBAR COMPONENT
-───────────────────────────────────────────── */
-export default function Navbar({
-  activePage,
-  setActivePage,
-  cartCount,
-  setCartOpen,
-}) {
+function Navbar({ activePage, setActivePage, cartCount, setCartOpen }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  /* SCROLL EFFECT */
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 pt-4">
-
       <div
         className={`max-w-7xl mx-auto rounded-full border transition-all duration-500 ${
           scrolled
@@ -46,7 +30,7 @@ export default function Navbar({
         }`}
       >
         <div className="flex items-center justify-between px-6 md:px-8 py-4">
-
+          
           {/* LOGO */}
           <button
             onClick={() => setActivePage("Home")}
@@ -55,7 +39,7 @@ export default function Navbar({
             AURUM <span className="text-[#d4a373]">DINING</span>
           </button>
 
-          {/* DESKTOP MENU */}
+          {/* DESKTOP NAV */}
           <ul className="hidden md:flex items-center gap-8">
             {NAV_LINKS.map((item) => (
               <li key={item}>
@@ -130,3 +114,5 @@ export default function Navbar({
     </nav>
   );
 }
+
+export default Navbar;

@@ -1,6 +1,4 @@
-/* ─────────────────────────────────────────────
-   NAV LINKS
-───────────────────────────────────────────── */
+/* NAV LINKS */
 export const NAV_LINKS = [
   "Home",
   "About",
@@ -11,9 +9,7 @@ export const NAV_LINKS = [
   "Contact",
 ];
 
-/* ─────────────────────────────────────────────
-   DISHES
-───────────────────────────────────────────── */
+/* DISHES */
 export const DISHES = [
   {
     name: "Saffron Lobster Bisque",
@@ -73,85 +69,77 @@ export const DISHES = [
   },
 ];
 
-/* ─────────────────────────────────────────────
-   FEATURES
-───────────────────────────────────────────── */
+/* FEATURES */
 export const FEATURES = [
   {
     icon: "✦",
     title: "Refined Ingredients",
-    desc: "Every ingredient is selected with precision for flavour, freshness and elegance.",
+    desc: "Every ingredient is selected with precision for flavour and freshness.",
   },
   {
     icon: "✧",
     title: "Curated Experience",
-    desc: "Every course, every light and every texture is designed to feel unforgettable.",
+    desc: "Every detail is designed to feel unforgettable and premium.",
   },
   {
     icon: "◈",
     title: "Modern Ambience",
-    desc: "A contemporary setting with soft luxury, intimacy and calm sophistication.",
+    desc: "A calm, elegant and contemporary dining environment.",
   },
   {
     icon: "✺",
     title: "Signature Service",
-    desc: "Warm hospitality with a seamless guest journey from arrival to farewell.",
+    desc: "Warm hospitality with seamless guest experience.",
   },
 ];
 
-/* ─────────────────────────────────────────────
-   TESTIMONIALS
-───────────────────────────────────────────── */
+/* TESTIMONIALS */
 export const TESTIMONIALS = [
   {
     name: "Priya Mehta",
     role: "Food Critic",
     quote:
-      "One of the most elegant dining spaces I’ve experienced — elevated, graceful and unforgettable.",
+      "One of the most elegant dining spaces I’ve experienced — unforgettable.",
   },
   {
     name: "Aarav Shah",
     role: "Entrepreneur",
     quote:
-      "The ambience alone feels premium, but the food and service take it to another level entirely.",
+      "The ambience feels premium, but the food and service are next level.",
   },
   {
     name: "Naina Kapoor",
     role: "Travel Creator",
     quote:
-      "A modern luxury restaurant that feels both exclusive and incredibly welcoming.",
+      "A modern luxury restaurant that feels exclusive and welcoming.",
   },
 ];
 
-/* ─────────────────────────────────────────────
-   SERVICES
-───────────────────────────────────────────── */
+/* SERVICES */
 export const SERVICES = [
   {
     icon: "🍽️",
     title: "Fine Dining",
-    desc: "An elevated tasting journey designed around seasonal ingredients and elegant plating.",
+    desc: "An elevated tasting experience with premium dishes.",
   },
   {
     icon: "🥂",
     title: "Private Events",
-    desc: "Bespoke dining experiences for celebrations, anniversaries and intimate gatherings.",
+    desc: "Custom dining for celebrations and special occasions.",
   },
   {
     icon: "🎉",
     title: "Corporate Dining",
-    desc: "Premium event hosting and curated executive dining in a refined environment.",
+    desc: "Executive-level dining and business events.",
   },
   {
     icon: "📅",
     title: "Reservations",
-    desc: "Simple booking with personalised arrangements for your special evening.",
+    desc: "Easy booking with personalised arrangements.",
   },
 ];
 
-/* ─────────────────────────────────────────────
-   PORTFOLIO
-───────────────────────────────────────────── */
+/* PORTFOLIO */
 export const PORTFOLIO_ITEMS = [
   {
     category: "Food",
@@ -173,14 +161,12 @@ export const PORTFOLIO_ITEMS = [
     img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=900&q=80",
     title: "Private Celebration",
   },
-  {
-    category: "Interior",
-    img: "https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=900&q=80",
-    title: "Wine Lounge",
-  },
-  {
-    category: "Food",
-    img: "https://images.unsplash.com/photo-1485963631004-f2f00b1d6606?w=900&q=80",
-    title: "Chef’s Garden",
-  },
+];
+
+/* FAQ */
+export const FAQS = [
+  { q: "Do I need a reservation?", a: "Yes, reservations are recommended." },
+  { q: "What are your opening hours?", a: "12 PM to 11 PM daily." },
+  { q: "Do you have vegetarian options?", a: "Yes, we offer many." },
+  { q: "Do you offer delivery?", a: "Currently dine-in only." },
 ];

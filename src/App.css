@@ -1,1 +1,32 @@
-@import "tailwindcss";
+/* Tailwind Base */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reset + Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Body styling */
+body {
+  background-color: #07111d;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Optional: nicer scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4a373;
+  border-radius: 10px;
+}

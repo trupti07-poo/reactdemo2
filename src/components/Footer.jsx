@@ -1,6 +1,5 @@
-/* ─────────────────────────────────────────────
-   NAV LINKS
-───────────────────────────────────────────── */
+import React from "react";
+
 const NAV_LINKS = [
   "Home",
   "About",
@@ -11,24 +10,18 @@ const NAV_LINKS = [
   "Contact",
 ];
 
-/* ─────────────────────────────────────────────
-   FOOTER COMPONENT
-───────────────────────────────────────────── */
-export default function Footer({ setActivePage }) {
+function Footer({ setActivePage }) {
   return (
     <footer className="bg-[#050c15] border-t border-white/10 text-white px-6 py-16">
-
       <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
-
-        {/* LOGO + DESC */}
+        
+        {/* BRAND */}
         <div>
           <h3 className="text-2xl font-black tracking-[0.24em] text-[#f8f4ef]">
             AURUM <span className="text-[#d4a373]">DINING</span>
           </h3>
-
           <p className="text-[#9eabb8] mt-5 leading-relaxed max-w-sm">
-            A clean, modern and luxury restaurant experience crafted for
-            unforgettable dining.
+            A modern luxury restaurant experience crafted for unforgettable dining.
           </p>
         </div>
 
@@ -37,7 +30,6 @@ export default function Footer({ setActivePage }) {
           <p className="text-sm uppercase tracking-[0.25em] text-[#d4a373] mb-5 font-bold">
             Navigation
           </p>
-
           <div className="space-y-3">
             {NAV_LINKS.map((item) => (
               <button
@@ -56,7 +48,6 @@ export default function Footer({ setActivePage }) {
           <p className="text-sm uppercase tracking-[0.25em] text-[#d4a373] mb-5 font-bold">
             Contact
           </p>
-
           <div className="space-y-3 text-[#c3ccd5]">
             <p>Mumbai, Maharashtra</p>
             <p>+91 22 4001 9999</p>
@@ -67,11 +58,9 @@ export default function Footer({ setActivePage }) {
 
       {/* BOTTOM */}
       <div className="max-w-7xl mx-auto border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-
         <p className="text-[#8d99a8] text-sm">
           © {new Date().getFullYear()} Aurum Dining. All rights reserved.
         </p>
-
         <p className="text-[#8d99a8] text-sm">
           Designed with modern luxury.
         </p>
@@ -79,3 +68,5 @@ export default function Footer({ setActivePage }) {
     </footer>
   );
 }
+
+export default Footer;

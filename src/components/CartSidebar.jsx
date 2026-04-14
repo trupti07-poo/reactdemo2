@@ -1,10 +1,6 @@
-export default function CartSidebar({
-  cart,
-  setCart,
-  cartOpen,
-  setCartOpen,
-}) {
-  /* REMOVE ITEM */
+import React from "react";
+
+function CartSidebar({ cart, setCart, cartOpen, setCartOpen }) {
   const removeItem = (index) => {
     const updated = [...cart];
     updated.splice(index, 1);
@@ -22,7 +18,6 @@ export default function CartSidebar({
         <h3 className="text-2xl font-bold text-[#f8f4ef]">
           Your Cart
         </h3>
-
         <button
           onClick={() => setCartOpen(false)}
           className="text-white text-2xl"
@@ -51,14 +46,13 @@ export default function CartSidebar({
                 <h4 className="font-bold text-[#f8f4ef]">
                   {item.name}
                 </h4>
-
                 <p className="text-[#d4a373] font-semibold mt-1">
                   {item.price}
                 </p>
 
                 <button
                   onClick={() => removeItem(i)}
-                  className="text-red-400 text-sm mt-2 hover:underline"
+                  className="text-red-400 text-sm mt-2"
                 >
                   Remove
                 </button>
@@ -70,12 +64,12 @@ export default function CartSidebar({
 
       {/* FOOTER */}
       <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-white/10 bg-[#0b1220]">
-
-        <button className="w-full py-4 rounded-2xl bg-gradient-to-r from-[#d4a373] to-[#f0c38e] text-[#111827] font-bold uppercase tracking-[0.2em] hover:scale-[1.02] transition-all duration-300">
+        <button className="w-full py-4 rounded-2xl bg-gradient-to-r from-[#d4a373] to-[#f0c38e] text-[#111827] font-bold uppercase tracking-[0.2em] hover:scale-[1.01] transition-all duration-300">
           Checkout
         </button>
-
       </div>
     </div>
   );
 }
+
+export default CartSidebar;

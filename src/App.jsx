@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 /* COMPONENTS */
 import Navbar from "./components/Navbar";
@@ -14,10 +14,7 @@ import Portfolio from "./pages/Portfolio";
 import Help from "./pages/Help";
 import Contact from "./pages/Contact";
 
-/* ─────────────────────────────────────────────
-   APP ROOT
-───────────────────────────────────────────── */
-export default function App() {
+function App() {
   const [activePage, setActivePage] = useState("Home");
   const [cart, setCart] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
@@ -28,17 +25,19 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  /* ADD TO CART */
+  /* CART */
   const addToCart = (item) => {
     setCart((prev) => [...prev, item]);
     setCartOpen(true);
   };
 
-  /* PAGE ROUTING (MANUAL) */
+  /* PAGE ROUTING */
   const PAGES = {
     Home: (props) => <Home {...props} />,
     About: About,
-    Menu: () => <Menu addToCart={addToCart} setActivePage={navigate} />,
+    Menu: (props) => (
+      <Menu {...props} addToCart={addToCart} />
+    ),
     Services: (props) => <Services {...props} />,
     Portfolio: Portfolio,
     Help: Help,
@@ -49,7 +48,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#07111d] text-white">
-
+      
       {/* NAVBAR */}
       <Navbar
         activePage={activePage}
@@ -66,7 +65,7 @@ export default function App() {
         setCartOpen={setCartOpen}
       />
 
-      {/* MAIN CONTENT */}
+      {/* PAGE CONTENT */}
       <main>
         <PageComponent setActivePage={navigate} />
       </main>
@@ -76,3 +75,5 @@ export default function App() {
     </div>
   );
 }
+
+export default App;

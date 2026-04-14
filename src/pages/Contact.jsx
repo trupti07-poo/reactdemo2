@@ -1,6 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-export default function Contact() {
+function Contact() {
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -12,7 +12,7 @@ export default function Contact() {
   const [sent, setSent] = useState(false);
 
   const inputClass =
-    "w-full rounded-2xl bg-white/5 border border-white/10 px-5 py-4 text-white placeholder-[#9aa6b4] outline-none focus:border-[#d4a373]";
+    "w-full rounded-2xl bg-white/5 border border-white/10 px-5 py-4 text-[#eef2f7] placeholder-[#9aa6b4] outline-none focus:border-[#d4a373] transition-all duration-300";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,36 +30,42 @@ export default function Contact() {
   };
 
   return (
-    <div className="bg-[#07111d] text-white pt-28">
-
+    <div className="bg-[#07111d] text-white pt-32">
+      
       {/* HEADER */}
-      <section className="text-center py-16">
-        <p className="text-sm uppercase tracking-[0.3em] text-[#d4a373] mb-3">
+      <section className="max-w-4xl mx-auto px-6 py-20 text-center">
+        <p className="text-[0.72rem] uppercase tracking-[0.35em] text-[#d4a373] mb-3 font-semibold">
           Book Your Visit
         </p>
 
-        <h2 className="text-5xl md:text-6xl font-black">
+        <h2 className="text-5xl md:text-6xl font-black text-[#f8f4ef]">
           Reservations
         </h2>
+
+        <div className="flex items-center justify-center gap-3 my-5">
+          <div className="h-px w-14 bg-gradient-to-r from-transparent to-[#d4a373]" />
+          <div className="w-2 h-2 rounded-full bg-[#d4a373]" />
+          <div className="h-px w-14 bg-gradient-to-l from-transparent to-[#d4a373]" />
+        </div>
       </section>
 
-      {/* CONTENT */}
+      {/* FORM + INFO */}
       <section className="max-w-7xl mx-auto px-6 pb-24 grid lg:grid-cols-2 gap-10">
-
+        
         {/* FORM */}
-        <div className="bg-white/5 border border-white/10 rounded-3xl p-8">
-          <h3 className="text-2xl font-bold mb-6">
-            Reserve Your Table
+        <div className="rounded-[2rem] border border-white/10 bg-white/5 backdrop-blur-xl p-8 md:p-10">
+          <h3 className="text-2xl font-bold text-[#f8f4ef] mb-8">
+            Reserve Your Experience
           </h3>
 
           {sent && (
-            <div className="mb-5 p-4 rounded-xl bg-[#d4a373]/20 border border-[#d4a373] text-[#f0d3b2]">
-              Reservation sent successfully!
+            <div className="mb-6 rounded-2xl border border-[#d4a373]/40 bg-[#d4a373]/10 px-5 py-4 text-[#f0d3b2]">
+              Reservation request sent successfully.
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-4">
-
+          <form onSubmit={handleSubmit} className="space-y-5">
+            
             <input
               type="text"
               placeholder="Full Name"
@@ -102,9 +108,9 @@ export default function Contact() {
             />
 
             <textarea
-              rows="4"
+              rows={5}
               placeholder="Special request..."
-              className={inputClass}
+              className={`${inputClass} resize-none`}
               value={form.message}
               onChange={(e) =>
                 setForm({ ...form, message: e.target.value })
@@ -113,48 +119,53 @@ export default function Contact() {
 
             <button
               type="submit"
-              className="w-full py-4 rounded-2xl bg-[#d4a373] text-black font-bold"
+              className="w-full py-4 rounded-2xl bg-gradient-to-r from-[#d4a373] to-[#f0c38e] text-[#111827] font-bold uppercase tracking-[0.2em] hover:scale-[1.01] transition-all duration-300"
             >
               Confirm Booking
             </button>
-
           </form>
         </div>
 
-        {/* INFO */}
-        <div className="space-y-6">
+        {/* RIGHT SIDE */}
+        <div className="space-y-8">
+          
+          <div className="rounded-[2rem] overflow-hidden border border-white/10">
+            <img
+              src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=1200&q=85"
+              alt="Restaurant"
+              className="w-full h-72 object-cover"
+            />
+          </div>
 
-          <img
-            src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=1200"
-            className="rounded-3xl"
-          />
-
-          <div className="bg-white/5 border border-white/10 rounded-3xl p-8">
-            <h3 className="text-2xl font-bold mb-4">
+          <div className="rounded-[2rem] border border-white/10 bg-white/5 backdrop-blur-xl p-8">
+            <h3 className="text-2xl font-bold text-[#f8f4ef] mb-6">
               Contact Details
             </h3>
 
-            <p className="text-[#c2ccd6] mb-2">
-              📍 Mumbai, Maharashtra
-            </p>
-
-            <p className="text-[#c2ccd6] mb-2">
-              📞 +91 22 4001 9999
-            </p>
-
-            <p className="text-[#c2ccd6] mb-2">
-              📧 reserve@aurum.in
-            </p>
-
-            <p className="text-[#c2ccd6]">
-              🕒 12:00 PM – 11:00 PM
-            </p>
+            <div className="space-y-5 text-[#c2ccd6]">
+              <p>
+                <span className="text-[#d4a373] font-semibold">Location:</span>{" "}
+                Mumbai, Maharashtra
+              </p>
+              <p>
+                <span className="text-[#d4a373] font-semibold">Phone:</span>{" "}
+                +91 22 4001 9999
+              </p>
+              <p>
+                <span className="text-[#d4a373] font-semibold">Email:</span>{" "}
+                reserve@aurum.in
+              </p>
+              <p>
+                <span className="text-[#d4a373] font-semibold">Hours:</span>{" "}
+                12:00 PM – 11:00 PM
+              </p>
+            </div>
           </div>
 
         </div>
-
       </section>
-
     </div>
   );
 }
+
+export default Contact;
